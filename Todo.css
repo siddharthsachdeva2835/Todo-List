@@ -4,8 +4,7 @@
   position: fixed;
   top: 0 ;
   left: 0 ;
-
-
+  font-family: "Ubuntu Condensed",sans-serif;
 }
 #left-half{
   display: flex;
@@ -15,10 +14,12 @@
   height: 700px;
 }
 #right-half{
-  display: flex ;
+  position: relative;
   background-color: #faf7f1 ;
   width: 60% ;
   height: 700px ;
+  color: #30415d ;
+  font-size: 25px ;
 
 }
 
@@ -29,6 +30,15 @@
   top: 200px ;
 }
 
+.date{
+  position: absolute;
+  top: 275px ;
+  left: 120px ;
+  font-size: 32px ;
+  letter-spacing: 1px ;
+  color: #faf7f1 ;
+}
+
 #add-text {
   position: absolute;
   top: 423px ;
@@ -37,27 +47,27 @@
   font-size: 22px ;
   letter-spacing: 1px ;
   font-weight: 300;
-  font-family: "Ubuntu Condensed",sans-serif;
 }
 
 #text-box{
-  position: absolute;
+  position: relative;
   top : 450px ;
   left: 12% ;
-  width: 320px ;
-  height: 40px ;
+  width: 75% ;
+  height: 49px ;
 }
 
 #text-box input {
+  box-sizing: border-box;
   padding-left: 10px ;
-  padding-top: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px ;
   padding-right: 50px ;
   width: 100% ;
-  height: 40px ;
+  height: 45px ;
   border: 3px solid #cf6766 ;
   background-color: #faf7f1 ;
   font-size: 20px ;
-  font-family: "Ubuntu Condensed",sans-serif;
   color: #30415d ;
   letter-spacing: 0.5px ;
   font-weight: 200;
@@ -69,4 +79,72 @@
   font-family: "Ubuntu Condensed",sans-serif;
   color: #c5c1c0 ;
   letter-spacing: 0.5px ;
+}
+
+#text-box button {
+  appearance: none ;
+  width: 45px ;
+  height: 45px ;
+  background-color: #cf6766 ;
+  border: 0px ;
+  position: absolute;
+  top: 0px ;
+  right: 0px ;
+  outline: none ;
+}
+
+#text-box button svg {
+  position: absolute;
+  top: 11.5px ;
+  left: 11.5px ;
+  width: 22px ;
+  height: 22px ;
+
+}
+#full-bar{
+  width: 100% ;
+  height:10px ;
+  background-color: #dbc35d ;
+}
+#percentage-bar{
+  position: absolute;
+  top: 0px ;
+  left: 0px ;
+  height: 10px ;
+  width: 70% ;
+  background-color: #cf6766 ;
+}
+
+#notdone {
+  position: relative;
+  width: 100% ;
+  height: 300px ;
+}
+#heading1,#heading2{
+  position: relative;
+  height: 25px;
+  padding: 15px ;
+  text-align: center;
+}
+#done {
+  position: relative;
+  width: 100% ;
+  height: 350px ;
+}
+
+.line{
+  width: 5% ;
+  border: 1px solid #cf6766;
+}
+
+#line1,#line3{
+  position: absolute;
+  top: 30px ;
+  left: 34% ;
+}
+
+#line2,#line4{
+  position: absolute;
+  top: 30px ;
+  right: 34% ;
 }
