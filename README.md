@@ -1,5 +1,5 @@
 # Todo-List
-A simple Todo App 
+A simple Todo App using JavaScript
 
 ## Functionality
 * Add a new task
