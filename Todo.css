@@ -118,7 +118,7 @@
 #notdone {
   position: relative;
   width: 100% ;
-  height: 300px ;
+  height: 320px ;
 }
 #heading1,#heading2{
   position: relative;
@@ -129,7 +129,7 @@
 #done {
   position: relative;
   width: 100% ;
-  height: 350px ;
+  height: 320px ;
 }
 
 .line{
@@ -147,4 +147,96 @@
   position: absolute;
   top: 30px ;
   right: 34% ;
+}
+.container{
+  width: calc(100%-40px) ;
+  height: 265px ;
+  padding-left: : 40px ;
+  padding-top: 10px ;
+  padding-right: 40px ;
+  list-style: none;
+  margin: 0 ;
+}
+
+.box{
+  border: 3px solid #cf6766 ;
+  width: 100% ;
+  height: 40px ;
+  margin-bottom: 20px ;
+  position: relative;
+}
+
+#task-name{
+  box-sizing: border-box;
+  padding-top: 6px ;
+  padding-left: 10px ;
+}
+#unchecked{
+  background-color: #c5c1c0 ;
+}
+
+#checked{
+  background-color: #dbc35d ;
+}
+
+.svgfile{
+  position: absolute;
+  top: 7px ;
+  width: 50px ;
+  height: 40px ;
+  box-sizing: border-box;
+}
+
+#delete{
+  right: 0px ;
+  padding-left: 12.5px ;
+}
+#edit{
+  right: 50px ;
+  padding-left: 22px ;
+}
+#check{
+  right: 100px;
+  width: 60px ;
+  padding-left: 0px ;
+}
+
+#delete svg{
+  height: 25px ;
+}
+#edit svg{
+  height: 25px ;
+}
+#check svg{
+  height: 25px;
+}
+
+#delete .fill{
+  fill: #b26262 ;
+}
+#edit{
+  fill: #cf6766 ;
+}
+#check .fill{
+  fill: #30415d ;
+}
+
+#circle-open{
+  position: absolute;
+  top: 3px ;
+  left: 29px ;
+  width: 18.5px ;
+  height: 18.5px ;
+  background-color: #faf7f1 ;
+  border-radius: 50% ;
+}
+
+#circle-close{
+  position: absolute;
+  top: 3px ;
+  left: 14px ;
+  width: 18.5px ;
+  height: 18.5px ;
+  background-color: #faf7f1 ;
+  border-radius: 50% ;
 }
