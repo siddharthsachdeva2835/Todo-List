@@ -11,16 +11,14 @@
   background-color: #8eaebd ;
   position: relative;
   width: 40% ;
-  height: 700px;
+
 }
 #right-half{
   position: relative;
   background-color: #faf7f1 ;
   width: 60% ;
-  height: 700px ;
   color: #30415d ;
   font-size: 25px ;
-
 }
 
 #left-half svg {
@@ -74,11 +72,18 @@
   appearance :none ;
 }
 
+#text-box input:focus{
+  background-color: #c5c1c0 ;
+  outline: none ;
+}
 #text-box input::placeholder {
   font-size: 20px ;
   font-family: "Ubuntu Condensed",sans-serif;
   color: #c5c1c0 ;
   letter-spacing: 0.5px ;
+}
+#text-box input:focus::placeholder{
+  color: #30415d ;
 }
 
 #text-box button {
@@ -91,6 +96,7 @@
   top: 0px ;
   right: 0px ;
   outline: none ;
+  cursor: pointer;
 }
 
 #text-box button svg {
@@ -156,8 +162,17 @@
   padding-right: 40px ;
   list-style: none;
   margin: 0 ;
+  overflow-y: scroll;
+}
+.container::-webkit-scrollbar{
+  width: 10px ;
+  background-color: #cf6766 ;
 }
 
+.container::-webkit-scrollbar-thumb{
+  border: 1px solid #cf6766 ;
+  background-color: #dbc35d ;
+}
 .box{
   border: 3px solid #cf6766 ;
   width: 100% ;
@@ -181,50 +196,64 @@
 
 .svgfile{
   position: absolute;
-  top: 7px ;
+  top: 0px ;
   width: 50px ;
   height: 40px ;
   box-sizing: border-box;
+  appearance:none ;
+  background: none ;
+  border: none ;
+  outline: none ;
+  cursor: pointer;
+  margin: 0 ;
 }
 
-#delete{
+.delete{
   right: 0px ;
   padding-left: 12.5px ;
 }
-#edit{
+.edit{
   right: 50px ;
   padding-left: 22px ;
 }
-#check{
+.check{
   right: 100px;
   width: 60px ;
   padding-left: 0px ;
 }
 
-#delete svg{
+.delete svg{
   height: 25px ;
 }
-#edit svg{
+.edit svg{
   height: 25px ;
 }
-#check svg{
+.check svg{
   height: 25px;
 }
 
-#delete .fill{
+
+.delete .fill{
   fill: #b26262 ;
 }
-#edit{
+.edit .fill{
   fill: #cf6766 ;
 }
-#check .fill{
+.check .fill{
   fill: #30415d ;
+}
+
+.delete:hover .fill{
+  fill: #cf6766 ;
+}
+.edit:hover .fill{
+  fill: #b26262 ;
 }
 
 #circle-open{
   position: absolute;
-  top: 3px ;
-  left: 29px ;
+  top: 9px ;
+  right: 113px ;
   width: 18.5px ;
   height: 18.5px ;
   background-color: #faf7f1 ;
@@ -233,10 +262,85 @@
 
 #circle-close{
   position: absolute;
-  top: 3px ;
-  left: 14px ;
+  top: 9px ;
+  right: 128px ;
   width: 18.5px ;
   height: 18.5px ;
   background-color: #faf7f1 ;
   border-radius: 50% ;
+}
+
+@media (max-width:1000px) {
+  #full-screen{
+    display: block;
+  }
+  #left-half{
+    width: 100% ;
+    height: 120px ;
+  }
+  #right-half{
+    width: 100% ;
+  }
+  #left-half svg {
+    width: 200px ;
+    top: 30px ;
+  }
+  .date{
+    top: 73px ;
+    left: 67px ;
+    font-size: 21px ;
+  }
+
+  #add-text {
+    top: 22px ;
+    left: 45% ;
+    font-size: 20px ;
+  }
+
+  #text-box{
+    position: relative;
+    top : 47px ;
+    left: 45% ;
+    width: 47% ;
+    height: 30px ;
+  }
+
+  #text-box input {
+    box-sizing: border-box;
+    padding-left: 10px ;
+    padding-top: 10px;
+    padding-bottom: 10px ;
+    padding-right: 50px ;
+    width: 100% ;
+    height: 45px ;
+    font-size: 20px ;
+    letter-spacing: 0.5px ;
+    font-weight: 200;
+    appearance :none ;
+  }
+
+  #text-box input::placeholder {
+    font-size: 20px ;
+    font-family: "Ubuntu Condensed",sans-serif;
+    color: #c5c1c0 ;
+    letter-spacing: 0.5px ;
+  }
+
+  #text-box button {
+    appearance: none ;
+    width: 45px ;
+    height: 45px ;
+    background-color: #cf6766 ;
+    border: 0px ;
+    position: absolute;
+    top: 0px ;
+    right: 0px ;
+    outline: none ;
+  }
+  .container{
+    height: 180px;
+  }
+  #notdone{
+    height: 260px ;
+  }
 }
