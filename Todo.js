@@ -66,20 +66,27 @@ function checkElement(){
 var tobedone = document.getElementById('style-1') ;
 var addEvent = document.getElementById('add-task') ;
 var text = document.getElementById('input-text') ;
-addEvent.addEventListener('click',function(e) {
+
+function addFunction(e) {
   let task = text.value ;
   countUndone++ ;
   var per = (countDone/(countDone+countUndone))*100 ;
-  console.log(per);
+
   document.getElementById('percentage-bar').style.width = per + '%' ;
   if(task!=''){
     let liElement = document.createElement('li') ;
     liElement.id = 'unchecked' ;
     liElement.className = 'box' ;
 
-    let div1 = document.createElement('div') ;
+    let div1 = document.createElement('input') ;
     div1.id = 'task-name' ;
-    div1.innerHTML = task ;
+    div1.value = task ;
+
+    div1.addEventListener('keypress',function(e){
+      if(e.keyCode==13){
+        div1.blur() ;
+      }
+    });
 
     let check = document.createElement('button') ;
     check.classList.add('svgfile') ;
@@ -103,6 +110,10 @@ addEvent.addEventListener('click',function(e) {
     edit.classList.add('edit') ;
     edit.innerHTML = editsvg ;
 
+    edit.addEventListener('click',function(e){
+      div1.focus() ;
+    });
+
     liElement.appendChild(div1) ;
     liElement.appendChild(check) ;
     liElement.appendChild(circle) ;
@@ -110,5 +121,11 @@ addEvent.addEventListener('click',function(e) {
     liElement.appendChild(dlt) ;
 
     tobedone.appendChild(liElement) ;
+  }
+}
+addEvent.addEventListener('click',addFunction);
+text.addEventListener('keypress',function(e){
+  if(e.keyCode==13){
+    addFunction() ;
   }
 });

@@ -22,9 +22,9 @@
 }
 
 #left-half svg {
-  display: flex;
+  display: flex ;
   width: 350px ;
-  position: absolute;
+  position: absolute ;
   top: 200px ;
 }
 
@@ -117,7 +117,7 @@
   top: 0px ;
   left: 0px ;
   height: 10px ;
-  width: 70% ;
+  width: 0% ;
   background-color: #cf6766 ;
 }
 
@@ -156,7 +156,7 @@
 }
 .container{
   width: calc(100%-40px) ;
-  height: 265px ;
+  height: 260px ;
   padding-left: : 40px ;
   padding-top: 10px ;
   padding-right: 40px ;
@@ -182,10 +182,25 @@
 }
 
 #task-name{
-  box-sizing: border-box;
-  padding-top: 6px ;
-  padding-left: 10px ;
+  box-sizing : border-box;
+  padding-top : 0px ;
+  padding-left : 10px ;
+  width: 60% ;
+  height: 40px ;
+  appearance :none ;
+  border : none ;
+  background : none ;
+  font-size: 23px ;
+  font-family: "Ubuntu Condensed",sans-serif;
+  color: #30415d ;
+  outline: none ;
 }
+
+#task-name:focus{
+  font-weight: 800;
+  padding-top: 2px ;
+}
+
 #unchecked{
   background-color: #c5c1c0 ;
 }
