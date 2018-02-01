@@ -7,6 +7,11 @@ element.classList.add('date') ;
 var parent = document.getElementById('left-half') ;
 parent.appendChild(element) ;
 
+var data = {
+  todo : [] ,
+  completed : []
+}
+
 var countDone = 0 ;
 var countUndone = 0 ;
 var checksvg = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="61.004px" height="39.14px" viewBox="0 0 61.004 39.14" enable-background="new 0 0 61.004 39.14" xml:space="preserve"> <path class="fill" d="M43.123,39.14H17.882C8.048,39.14,0,30.333,0,19.57l0,0C0,8.807,8.048,0,17.882,0h25.241 c9.834,0,17.881,8.807,17.881,19.57l0,0C61.004,30.333,52.957,39.14,43.123,39.14z"/> <line fill="none" stroke="#61B872" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="42.073" y1="24.175" x2="50.486" y2="14.966"/> <line fill="none" stroke="#ED7161" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="17.647" y1="10.999" x2="17.647" y2="29.417"/> <line fill="none" stroke="#61B872" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="38.343" y1="20.445" x2="42.073" y2="24.174"/> </svg>'
@@ -20,6 +25,13 @@ function removeElement(e){
   var task = this.parentNode ;
 
   var id = parent.id ;
+
+  if(id=='style-1'){
+      data.todo.splice(data.todo.indexOf(task.childNodes[0].value),1) ;
+  }
+  else {
+      data.completed.splice(data.completed.indexOf(task.childNodes[0].value),1) ;
+  }
 
   if(id=='style-1'){
     countUndone-- ;
@@ -41,6 +53,17 @@ function checkElement(){
   var parent = this.parentNode.parentNode ;
   var task = this.parentNode ;
   var id = parent.id ;
+
+  if(id=='style-1'){
+    data.todo.splice(data.todo.indexOf(task.childNodes[0].value),1) ;
+    data.completed.push(task.childNodes[0].value) ;
+  }
+  else {
+    data.completed.splice(data.completed.indexOf(task.childNodes[0].value),1) ;
+    data.todo.push(task.childNodes[0].value) ;
+  }
+
+  console.log(data);
 
   if(id=='style-1'){
     countUndone-- ;
@@ -67,8 +90,7 @@ var tobedone = document.getElementById('style-1') ;
 var addEvent = document.getElementById('add-task') ;
 var text = document.getElementById('input-text') ;
 
-function addFunction(e) {
-  let task = text.value ;
+function addFunction(task) {
   countUndone++ ;
   var per = (countDone/(countDone+countUndone))*100 ;
 
@@ -123,9 +145,21 @@ function addFunction(e) {
     tobedone.appendChild(liElement) ;
   }
 }
-addEvent.addEventListener('click',addFunction);
+addEvent.addEventListener('click',function(){
+  var value = document.getElementById('input-text').value ;
+  if(value){
+    addFunction(value) ;
+    document.getElementById('input-text').value = '' ;
+    data.todo.push(value) ;
+    console.log(data);
+  }
+});
 text.addEventListener('keypress',function(e){
+  var value = document.getElementById('input-text').value ;
   if(e.keyCode==13){
-    addFunction() ;
+    addFunction(value) ;
+    document.getElementById('input-text').value  = '' ;
+    data.todo.push(value) ;
+    console.log(data);
   }
 });

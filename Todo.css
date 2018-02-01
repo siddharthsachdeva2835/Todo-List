@@ -5,12 +5,14 @@
   top: 0 ;
   left: 0 ;
   font-family: "Ubuntu Condensed",sans-serif;
+  height: 100% ;
 }
 #left-half{
   display: flex;
   background-color: #8eaebd ;
   position: relative;
   width: 40% ;
+  height: 100% ;
 
 }
 #right-half{
@@ -19,6 +21,7 @@
   width: 60% ;
   color: #30415d ;
   font-size: 25px ;
+  height: 100% ;
 }
 
 #left-half svg {
