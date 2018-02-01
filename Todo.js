@@ -137,12 +137,15 @@ function addFunction(task) {
       }
     });
 
+    var index ;
+
     div1.addEventListener('focusout',function(e){
       var par = edit.parentNode.parentNode.id ;
+      console.log(index);
       if(par=='style-1'){
-        data.todo.push(div1.value) ;
+        data.todo.splice(index,0,div1.value) ;
       }else {
-        data.completed.push(div1.value) ;
+        data.completed.splice(index,0,div1.value) ;
       }
       updateObjectData() ;
     }) ;
@@ -176,9 +179,10 @@ function addFunction(task) {
     edit.addEventListener('click',function(e){
       var par = edit.parentNode.parentNode.id ;
       if(par=='style-1'){
-        console.log(div1.value) ;
+        index = data.todo.indexOf(div1.value) ;
         data.todo.splice(data.todo.indexOf(div1.value),1) ;
       }else {
+        index = data.completed.indexOf(div1.value) ;
         data.completed.splice(data.completed.indexOf(div1.value),1) ;
       }
       console.log(data);
