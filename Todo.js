@@ -81,7 +81,6 @@ function checkElement(e){
   var id = parent.id ;
 
   if(e.isTrusted==true){
-    console.log(e);
     if(id=='style-1'){
       data.todo.splice(data.todo.indexOf(task.childNodes[0].value),1) ;
       data.completed.push(task.childNodes[0].value) ;
@@ -138,6 +137,20 @@ function addFunction(task) {
       }
     });
 
+    div1.addEventListener('focusout',function(e){
+      var par = edit.parentNode.parentNode.id ;
+      if(par=='style-1'){
+        data.todo.push(div1.value) ;
+      }else {
+        data.completed.push(div1.value) ;
+      }
+      updateObjectData() ;
+    }) ;
+
+    div1.addEventListener('mousedown',function(e){
+        e.preventDefault() ;
+    });
+
     let check = document.createElement('button') ;
     check.classList.add('svgfile') ;
     check.classList.add('check') ;
@@ -161,6 +174,14 @@ function addFunction(task) {
     edit.innerHTML = editsvg ;
 
     edit.addEventListener('click',function(e){
+      var par = edit.parentNode.parentNode.id ;
+      if(par=='style-1'){
+        console.log(div1.value) ;
+        data.todo.splice(data.todo.indexOf(div1.value),1) ;
+      }else {
+        data.completed.splice(data.completed.indexOf(div1.value),1) ;
+      }
+      console.log(data);
       div1.focus() ;
     });
 

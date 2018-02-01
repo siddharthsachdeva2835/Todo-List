@@ -197,11 +197,13 @@
   font-family: "Ubuntu Condensed",sans-serif;
   color: #30415d ;
   outline: none ;
+  cursor: default;
 }
 
 #task-name:focus{
   font-weight: 800;
   padding-top: 2px ;
+  cursor: text;
 }
 
 #unchecked{
