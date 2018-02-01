@@ -7,9 +7,15 @@ element.classList.add('date') ;
 var parent = document.getElementById('left-half') ;
 parent.appendChild(element) ;
 
-var data = {
+var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo : [] ,
   completed : []
+}
+
+console.log(data);
+
+function updateObjectData(){
+  localStorage.setItem('todoList',JSON.stringify(data)) ;
 }
 
 var countDone = 0 ;
@@ -32,6 +38,8 @@ function removeElement(e){
   else {
       data.completed.splice(data.completed.indexOf(task.childNodes[0].value),1) ;
   }
+
+  updateObjectData() ;
 
   if(id=='style-1'){
     countUndone-- ;
@@ -63,7 +71,7 @@ function checkElement(){
     data.todo.push(task.childNodes[0].value) ;
   }
 
-  console.log(data);
+  updateObjectData() ;
 
   if(id=='style-1'){
     countUndone-- ;
@@ -151,7 +159,7 @@ addEvent.addEventListener('click',function(){
     addFunction(value) ;
     document.getElementById('input-text').value = '' ;
     data.todo.push(value) ;
-    console.log(data);
+    updateObjectData() ;
   }
 });
 text.addEventListener('keypress',function(e){
@@ -160,6 +168,6 @@ text.addEventListener('keypress',function(e){
     addFunction(value) ;
     document.getElementById('input-text').value  = '' ;
     data.todo.push(value) ;
-    console.log(data);
+    updateObjectData() ;
   }
 });
